@@ -15,7 +15,6 @@ pincode_checker: Main project folder
 index.html: User interface for entering PIN Code
 style.css: Styling for the application
 script.js: Logic for PIN Code validation
-assets/images: (Optional) Images used in UI
 README.md: Project documentation
 
 -> Features
