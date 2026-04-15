@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create PINCS • PINCS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="create-pincs.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="landing.html" class="logo">
+          <img src="./images/logo.png" alt="PINCS logo" class="logo-img" />
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="navbar" aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="landing.html#home"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>Home</a></li>
+            <li><a href="landing.html#about"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></span>About</a></li>
+            <li><a href="landing.html#features"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>Features</a></li>
+            <li><a href="landing.html#how-it-works"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></span>How it works</a></li>
+            <li><a href="landing.html#use-cases"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg></span>Applications</a></li>
+            <li><a href="landing.html#contact"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>Contacts</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a class="btn btn-outline" href="signin.html"><span class="nav-icon nav-icon-signin" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M20.5,15.1a1,1,0,0,0-1.34.45A8,8,0,1,1,12,4a7.93,7.93,0,0,1,7.16,4.45,1,1,0,0,0,1.8-.9,10,10,0,1,0,0,8.9A1,1,0,0,0,20.5,15.1ZM21,11H11.41l2.3-2.29a1,1,0,1,0-1.42-1.42l-4,4a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l4,4a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L11.41,13H21a1,1,0,0,0,0-2Z"/></svg></span>Sign In</a>
+            <a class="btn btn-primary" href="signup.html"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>Sign Up</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="create-pincs-main">
+      <div class="create-pincs-layout">
+        <!-- Left: Interactive Map -->
+        <section class="map-section" aria-label="Interactive map">
+          <div id="map" class="map-container" role="application" aria-label="Map to select location"></div>
+          <div class="map-placeholder" id="map-placeholder">
+            <div class="map-pin-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="64" height="64">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+              </svg>
+            </div>
+            <p class="map-label">Interactive Map</p>
+            <p class="map-hint">Click anywhere on the map to pin a location</p>
+          </div>
+        </section>
+
+        <!-- Right: Form Panel -->
+        <aside class="form-panel">
+          <div class="form-panel-inner">
+            <header class="form-panel-header">
+              <span class="form-panel-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                </svg>
+              </span>
+              <h1 class="form-panel-title">Create PINCS</h1>
+            </header>
+            <p class="form-panel-desc">
+              Enter an address or select a location on the map to generate your unique code.
+            </p>
+
+            <form class="create-pincs-form" id="create-pincs-form" novalidate>
+              <div class="field">
+                <label for="search-address">Search Address</label>
+                <div class="search-row">
+                  <input
+                    id="search-address"
+                    name="searchAddress"
+                    type="text"
+                    placeholder="e.g. 142 Rajiv Gandhi Nagar, Hyd"
+                    autocomplete="street-address"
+                  />
+                  <button type="button" class="btn-search" id="btn-search" aria-label="Search address">
+                    Search
+                  </button>
+                </div>
+              </div>
+
+              <div class="divider-text">
+                <span>or</span>
+              </div>
+
+              <button type="button" class="btn-select-map" id="btn-select-map" aria-label="Select location on map">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Select on Map
+              </button>
+
+              <div class="field">
+                <label for="city-area">City / Area</label>
+                <input id="city-area" name="cityArea" type="text" placeholder="e.g. Hyderabad" value="Hyderabad" />
+              </div>
+
+              <div class="field">
+                <label for="state">State</label>
+                <input id="state" name="state" type="text" placeholder="e.g. Telangana" value="Telangana" />
+              </div>
+
+              <div class="field">
+                <label for="pincode">Pincode</label>
+                <input id="pincode" name="pincode" type="text" placeholder="e.g. 500072" value="500072" inputmode="numeric" pattern="[0-9]{6}" />
+              </div>
+
+              <button type="submit" class="btn-generate" id="btn-generate">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+                Generate PINCS Code
+              </button>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="create-pincs.js"></script>
+  </body>
+</html>
