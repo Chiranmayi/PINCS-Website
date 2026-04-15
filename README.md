@@ -41,6 +41,5 @@ Auto-detect user location
 Connect with delivery platforms
 Add backend and database support
 
-=>About
-This project demonstrates basic frontend development skills and logic building using JavaScript, with a real-world use case of location-based service validation.
+
 
